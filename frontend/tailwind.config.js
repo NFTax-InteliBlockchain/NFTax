@@ -14,6 +14,7 @@ export default {
       colors: {
         "darkblue": "#0d327f",
         "button-darkblue": "#08225e",
+        "lightblue": "#1BA8E3",
       }
     },
   },
