@@ -5,9 +5,15 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    fontFamily: {
+      montserrat: ['Montserrat'],
+    },
     extend: {
       colors: {
-        "darkblue": "#0d327f"
+        "blue": "#0D327F",
+        "darkblue": '#08225E',
+        "grey": "#EFECEC",
+        "lightblue": "#1BA8E3"
       }
     },
   },
