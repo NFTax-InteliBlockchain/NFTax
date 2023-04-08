@@ -13,7 +13,9 @@ export default {
         "blue": "#0D327F",
         "darkblue": '#08225E',
         "grey": "#EFECEC",
-        "lightblue": "#1BA8E3"
+        "darkblue": "#0d327f",
+        "button-darkblue": "#08225e",
+        "lightblue": "#1BA8E3",
       }
     },
   },
