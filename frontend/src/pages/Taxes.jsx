@@ -45,17 +45,26 @@ export function Taxes() {
     function makePdf() {
         let cards = getCards()
         let paidTable = [
-            ['Investimento', 'Data', 'Valor investido', 'Imposto de renda'],
+            [{text: 'Investimento', style: 'tableHeader' }, {text: 'Data', style: 'tableHeader' }, 
+            {text: 'Valor investido', style: 'tableHeader' }, {text: 'Imposto de renda', style: 'tableHeader' }],
         ]
+        let totalPaid = 0
         cards.filter(card => card.paid).forEach(card => {
+            totalPaid += card.taxes
             paidTable.push( [card.name, moment(card.date).format('DD/MM/YYYY'), "R$ " + card.value, "R$ " + card.taxes])
         })
+        paidTable.push([{text: 'Total', style: 'tableHeader', colSpan: 3}, {}, {}, "R$ " + totalPaid])
+
+        let totalUnpaid = 0
         let unpaidTable = [
-            ['Investimento', 'Data', 'Valor investido', 'Imposto de renda'],
+            [{text: 'Investimento', style: 'tableHeader' }, {text: 'Data', style: 'tableHeader' }, 
+            {text: 'Valor investido', style: 'tableHeader' }, {text: 'Imposto de renda', style: 'tableHeader' }],
         ]
         cards.filter(card => !card.paid).forEach(card => {
+            totalUnpaid += card.taxes
             unpaidTable.push( [card.name, moment(card.date).format('DD/MM/YYYY'), "R$ " + card.value, "R$ " + card.taxes])
         })
+        unpaidTable.push([{text: 'Total', style: 'tableHeader', colSpan: 3}, {}, {}, "R$ " + totalUnpaid])
 
         const docDefinition = {
             content: [
@@ -185,8 +194,8 @@ export function Taxes() {
                     })}
                 </div>
             </div>
-            <div className="bg-darkblue text-white px-1 py-3 w-full bottom-0 flex justify-center items-center font-bold sticky">
-                <span className="text-center" onClick={() => setShowPaymentModal(true)}>Pagar tudo</span>
+            <div onClick={() => setShowPaymentModal(true)} className="bg-darkblue text-white px-1 py-3 w-full bottom-0 flex justify-center items-center font-bold sticky">
+                <span className="text-center" >Pagar tudo</span>
                 <BsArrowRight className="text-xl absolute right-3 text-lightblue" />
             </div>
             {selectedCard && (
