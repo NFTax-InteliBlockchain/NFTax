@@ -5,7 +5,7 @@ export function Card(props) {
     const monthNames = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Septembro", "Outubro", "Novembro", "Dezembro"];
 
     return (
-        <div className="w-full h-20 bg-[#fffefe] shadow-md flex items-center  gap-5 relative">
+        <div onClick={props.onClick} className="w-full h-20 bg-[#fffefe] shadow-md flex items-center  gap-5 relative">
 
             <div className={props.paid ? "bg-green-500 w-1 h-full absolute left-0" : "bg-red-500 w-1 h-full absolute left-0"} ></div>
             <div className="flex flex-col bg-white rounded-2 items-center font-bold shadow-sm py-2 pl-5">
