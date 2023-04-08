@@ -55,10 +55,6 @@ As pastas desse projeto foram organizadas conforme exemplo a seguir:
 
 ##
 
-## Arquitetura do sistema
-
-<img src="" alt="arquitetura do sistema"/>
-
 
 ## Tecnologias
 
