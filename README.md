@@ -46,6 +46,10 @@ As pastas desse projeto foram organizadas conforme exemplo a seguir:
 │    │    ├── components
 │    │    │    ├── taxes
 │    │    ├── pages
+├── Documents
+│    ├── Hyperledger Besu JSON-RPC API.postman_collection.json
+│    ├── DocumentaçãoNFTax.pdf
+│    ├── SlidesNFTax.pdf
 ├── README.md
 ```
 
