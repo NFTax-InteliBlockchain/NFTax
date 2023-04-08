@@ -8,6 +8,10 @@ export function Home() {
     function handleNFTaxClick() {
         navigate('/connect');
       }
+
+      function handleClick() {
+        navigate('/taxes')
+      }
     
     return (
         <div className="bg-darkblue h-screen">
@@ -28,7 +32,7 @@ export function Home() {
                 <p className='pt-8 text-xs text-slate-50'>MEUS ATALHOS</p>
                 <div className="grid grid-cols-3 grid-flow-row gap-2 pt-2">
                     <ButtonHome onClick={handleNFTaxClick} image="./nftax.svg" text="NFTax"/>
-                    <ButtonHome image="./qrcode.svg" text="BRB Code" />
+                    <ButtonHome onClick={handleClick} image="./qrcode.svg" text="BRB Code" />
                     <ButtonHome image="./handmoney.svg" text="Crédito Pessoal" />
                     <ButtonHome image="./graphic.svg" text="Aplicar em Fundos" />
                     <ButtonHome image="./graphic.svg" text="Aplicar em CDB" />
