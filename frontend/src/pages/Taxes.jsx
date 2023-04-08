@@ -18,6 +18,10 @@ import { MdClose } from 'react-icons/md'
 
 import 'moment/dist/locale/pt-br'
 
+import pdfMake from "pdfmake/build/pdfmake";
+import pdfFonts from "pdfmake/build/vfs_fonts";
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
+
 export function Taxes() {
 
 
@@ -37,6 +41,66 @@ export function Taxes() {
 
     const ref = useRef(null);
     const payAllRef = useRef(null);
+
+    function makePdf() {
+        let cards = getCards()
+        let paidTable = [
+            ['Investimento', 'Data', 'Valor investido', 'Imposto de renda'],
+        ]
+        cards.filter(card => card.paid).forEach(card => {
+            paidTable.push( [card.name, moment(card.date).format('DD/MM/YYYY'), "R$ " + card.value, "R$ " + card.taxes])
+        })
+        let unpaidTable = [
+            ['Investimento', 'Data', 'Valor investido', 'Imposto de renda'],
+        ]
+        cards.filter(card => !card.paid).forEach(card => {
+            unpaidTable.push( [card.name, moment(card.date).format('DD/MM/YYYY'), "R$ " + card.value, "R$ " + card.taxes])
+        })
+
+        const docDefinition = {
+            content: [
+                { text: 'Relatório de imposto de renda', style: 'header' },
+                { text: 'Impostos pagos', style: 'subheader' },
+                {
+                    style: 'tableExample',
+                    table: {
+                        body: paidTable
+                    }
+                },
+                { text: 'Impostos a pagar', style: 'subheader' },
+                {
+                    style: 'tableExample',
+                    table: {
+                        body: unpaidTable
+                    }
+                },
+            ],
+            styles: {
+                header: {
+                    fontSize: 18,
+                    bold: true,
+                    margin: [0, 0, 0, 10]
+                },
+                subheader: {
+                    fontSize: 16,
+                    bold: true,
+                    margin: [0, 10, 0, 5]
+                },
+                tableExample: {
+                    margin: [0, 5, 0, 15]
+                },
+                tableHeader: {
+                    bold: true,
+                    fontSize: 13,
+                    color: 'black'
+                }
+            },
+            defaultStyle: {
+                // alignment: 'justify'
+            }
+        }
+        pdfMake.createPdf(docDefinition).open()
+    }
 
 
     useEffect(() => {
@@ -160,7 +224,7 @@ export function Taxes() {
                 <div ref={payAllRef} className='fixed bottom-0 h-[40%] w-full bg-white rounded-t-3xl shadow-2xl overflow-scroll'>
                     <div className='flex flex-col px-7 w-full'>
                         <span className='flex justify-center pt-4 '>
-                            <h2 className='font-bold text-black text-xl mt-2'>Detalhes da operação</h2>
+                            <h2 className='font-bold text-black text-xl my-2'>Detalhes da operação</h2>
                             <MdClose className='absolute right-4 top-7 text-lightblue' onClick={() => setShowPaymentModal(false)} />
                         </span>
                         {getCards()
@@ -168,7 +232,7 @@ export function Taxes() {
                             .map((card) => {
                                 return (
                                     <div>
-                                        <div className='flex justify-between items-center mt-4'>
+                                        <div className='flex justify-between items-center'>
                                             <div>
                                                 <p className='mt-3'>{card.abbreviation}</p>
                                                 <p className='text-sm mt-1'>{card.abbreviation}</p>
@@ -177,23 +241,24 @@ export function Taxes() {
                                         </div>
 
                                         <hr className='mt-2 text-gray-900' />
-                                        <span className='flex justify-between w-full mt-4'>
+                                        <span className='flex justify-between w-full mt-4 text-sm'>
                                             <p>Data de liquidação:</p>
                                             <p>{moment(card.date).locale('pt').format('LL')}</p>
                                         </span>
-                                        <span className='flex justify-between w-full mt-2'>
+                                        <span className='flex justify-between w-full mt-2 text-sm'>
                                             <p>Valor investido:</p>
                                             <p>R$ {card.value}</p>
                                         </span>
+                                        <hr className='mt-4 text-gray-900 border-2 mb-2' />
                                     </div>
                                 )
                             })}
-                        <span className='flex justify-between w-full mt-4 text-lg'>
+                        <span className='flex justify-between w-full mt-2 text-lg'>
                             <p>TOTAL:</p>
-                            <p>R$ {totalTaxes}</p>
+                            <p className='font-bold'>R$ {totalTaxes}</p>
                         </span>
                         <span class="flex justify-between w-full mb-5">
-                        <button className='text-gray-500 w-fit px-4 py-2 font-bold text-lg rounded mt-8'>Gerar relatório</button>
+                            <button className='text-gray-500 w-fit px-4 py-2 font-bold text-lg rounded mt-8' onClick={makePdf}>Gerar relatório</button>
                             <button className='bg-darkblue text-white w-fit px-4 py-2 font-bold text-lg rounded mt-8'>Pagar tudo</button>
                         </span>
 
