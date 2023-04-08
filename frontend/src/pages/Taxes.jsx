@@ -20,6 +20,7 @@ import 'moment/dist/locale/pt-br'
 
 import pdfMake from "pdfmake/build/pdfmake";
 import pdfFonts from "pdfmake/build/vfs_fonts";
+import axios from 'axios';
 
 export function Taxes() {
 
@@ -41,29 +42,42 @@ export function Taxes() {
     const ref = useRef(null);
     const payAllRef = useRef(null);
 
+
+    useEffect(() => {
+        axios.post('https://290b-177-92-77-170.sa.ngrok.io/contract/investment/Google', {
+            "address": "0xf17f52151EbEF6C7334FAD080c5704D77216b732"
+        })
+            .then(response => {
+                console.log(response.data);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    }, [])
+
     function makePdf() {
         let cards = getCards()
         let paidTable = [
-            [{text: 'Investimento', style: 'tableHeader' }, {text: 'Data', style: 'tableHeader' }, 
-            {text: 'Valor investido', style: 'tableHeader' }, {text: 'Imposto de renda', style: 'tableHeader' }],
+            [{ text: 'Investimento', style: 'tableHeader' }, { text: 'Data', style: 'tableHeader' },
+            { text: 'Valor investido', style: 'tableHeader' }, { text: 'Imposto de renda', style: 'tableHeader' }],
         ]
         let totalPaid = 0
         cards.filter(card => card.paid).forEach(card => {
             totalPaid += card.taxes
-            paidTable.push( [card.name, moment(card.date).format('DD/MM/YYYY'), "R$ " + card.value, "R$ " + card.taxes])
+            paidTable.push([card.name, moment(card.date).format('DD/MM/YYYY'), "R$ " + card.value, "R$ " + card.taxes])
         })
-        paidTable.push([{text: 'Total', style: 'tableHeader', colSpan: 3}, {}, {}, "R$ " + totalPaid])
+        paidTable.push([{ text: 'Total', style: 'tableHeader', colSpan: 3 }, {}, {}, "R$ " + totalPaid])
 
         let totalUnpaid = 0
         let unpaidTable = [
-            [{text: 'Investimento', style: 'tableHeader' }, {text: 'Data', style: 'tableHeader' }, 
-            {text: 'Valor investido', style: 'tableHeader' }, {text: 'Imposto de renda', style: 'tableHeader' }],
+            [{ text: 'Investimento', style: 'tableHeader' }, { text: 'Data', style: 'tableHeader' },
+            { text: 'Valor investido', style: 'tableHeader' }, { text: 'Imposto de renda', style: 'tableHeader' }],
         ]
         cards.filter(card => !card.paid).forEach(card => {
             totalUnpaid += card.taxes
-            unpaidTable.push( [card.name, moment(card.date).format('DD/MM/YYYY'), "R$ " + card.value, "R$ " + card.taxes])
+            unpaidTable.push([card.name, moment(card.date).format('DD/MM/YYYY'), "R$ " + card.value, "R$ " + card.taxes])
         })
-        unpaidTable.push([{text: 'Total', style: 'tableHeader', colSpan: 3}, {}, {}, "R$ " + totalUnpaid])
+        unpaidTable.push([{ text: 'Total', style: 'tableHeader', colSpan: 3 }, {}, {}, "R$ " + totalUnpaid])
 
         const docDefinition = {
             content: [

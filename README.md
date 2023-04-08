@@ -1,4 +1,4 @@
-# <img width="70px" height="70px" src="https://user-images.githubusercontent.com/99221221/230695442-4fac4597-b94f-415f-a099-f844b0430fdd.png" alt="moken-logo"/> NFTax - Bank as a service
+# <img width="70px" height="70px" src="https://user-images.githubusercontent.com/99221221/230695442-4fac4597-b94f-415f-a099-f844b0430fdd.png" alt="moken-logo"/> NFTax - Banking as a service
 
 ## Campus Party - Hackathon Banco BRB - Open Finance - CPBSB5
 
@@ -79,14 +79,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 <table>
   <tr>
-    <td align="center">
-      <a href="https://www.linkedin.com/in/alberto-da-rocha-miranda-angrysine/">
-        <img src="https://avatars.githubusercontent.com/u/99188421?v=4" width="100px;" alt="Alberto Miranda profile image"/><br>
-        <sub>
-          <b>Alberto da Rocha </b>
-        </sub>
-      </a>
-    </td>
     <td align="center">
       <a href="https://www.linkedin.com/in/emanuele-morais/">
         <img src="https://avatars.githubusercontent.com/u/99221221?v=4" width="100px;" alt="Emanuele Morais profile image"/><br>
