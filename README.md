@@ -27,18 +27,24 @@ A documentação com informações da visão geral do projeto, análise de negó
 As pastas desse projeto foram organizadas conforme exemplo a seguir:
 
 ```
-├── .vscode
 ├── Backend
 │    ├── src
-│    │    ├── config
+│    │    ├── assets
+│    │    │    ├── investimentos
 │    │    ├── controllers
-│    │    ├── models
+│    │    ├── middlewares
 │    │    ├── routes
-├── Documents
+│    │    ├── services
+│    │    ├── utils
+├── Blockchain
+│    ├── quorum-test-network
+│    ├── truffle
 ├── Frontend
+│    ├── public
 │    ├── src
 │    │    ├── assets
 │    │    ├── components
+│    │    │    ├── taxes
 │    │    ├── pages
 ├── README.md
 ```
@@ -54,16 +60,18 @@ As pastas desse projeto foram organizadas conforme exemplo a seguir:
 
 Esse projeto foi desenvolvido usando as seguintes tecnologias:
 
+-   HyperLedger Besu
 -   React JS
 -   Tailwind
 -   Css
 -   JavaScript
--   Ethers Js
+-   Web3 Js
 -   Node Js
 -   SQLite
 -   Metamask
 -   Truffle
 -   Solidity
+
 
 ---
 
