@@ -19,8 +19,6 @@ import { MdClose } from 'react-icons/md'
 import 'moment/dist/locale/pt-br'
 
 import pdfMake from "pdfmake/build/pdfmake";
-import pdfFonts from "pdfmake/build/vfs_fonts";
-pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 export function Taxes() {
 
