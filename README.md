@@ -2,7 +2,7 @@
 
 ## Campus Party - Hackathon Banco BRB - Open Finance - CPBSB5
 
-## [Trailer]()
+## [Trailer](https://www.youtube.com/watch?v=tR3K5uINdz0)
 
 <img src="https://user-images.githubusercontent.com/99221221/230695291-f97a336e-f524-4007-bf73-789e64d60bf2.png" width="800px" alt="app-screens-mockup"/>
 
