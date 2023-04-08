@@ -16,7 +16,7 @@ export function Card(props) {
                 <p>{props.abbreviation}</p>
                 <p className="text-sm">{props.name}</p>
             </div>
-            <p className="pr-8">R$ {props.taxes}</p>
+            <p className="pr-8">R$ {(props.taxes / 100 * props.value).toFixed(2)}</p>
         </div>
     )
 }
