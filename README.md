@@ -8,11 +8,13 @@
 
 ## Nossa Solução
 
-Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+O NFTax é uma solução revolucionária que tem como objetivo tornar mais fácil e acessível o cálculo de imposto de renda para a grande massa de investidores no mercado de Open Finance. Essa solução inovadora, baseada em blockchain, oferece um serviço "bank as a service" para bancos e outras instituições financeiras, o que garante a rastreabilidade das informações e o cálculo automático dos valores de impostos sobre as transações.
 
-Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Para garantir a segurança e a privacidade das transações, o NFTax utiliza uma blockchain privada permissionada construída com o Hyperledger Besu, além de oferecer contratos digitais para investimentos mais comuns. Através da API do NFTax, os usuários têm acesso a todas as transações de uma determinada carteira de investimentos, e o cálculo de imposto de renda é feito automaticamente na própria API, sem que o investidor precise se preocupar com detalhes técnicos. 
 
-Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+A solução NFTax funciona de forma simples e prática, o usuário concede acesso à sua carteira Metamask e o backend do NFTax se comunica com os contratos inteligentes por meio da ferramenta Truffle. Com essa comunicação estabelecida, o NFTax consegue acessar todas as transações realizadas pelo usuário em sua carteira Metamask, e automaticamente calcula o imposto devido com base nas regras tributárias aplicáveis. Essas informações são então enviadas de volta ao usuário, que consegue visualizar os valores de imposto devido e pagá-los com segurança e tranquilidade.
+
+Em resumo, a solução NFTax utiliza tecnologia blockchain e contratos inteligentes para simplificar o cálculo e o pagamento de impostos sobre transações com CBDCs (Central Bank Digital Currencies). Com isso, o usuário tem mais controle sobre suas finanças e pode se concentrar no que realmente importa: fazer investimentos rentáveis e seguros. 
 
 <img src="https://user-images.githubusercontent.com/99221221/230695283-cbdda913-f93f-4ded-9614-3a5d45e8871a.png" width="800px" alt="app-screens-mockup"/>
 
